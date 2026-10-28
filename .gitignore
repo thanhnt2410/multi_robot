@@ -1,0 +1,21 @@
+# MATLAB temporary and generated binary files
+*.asv
+*.m~
+results/*.mat
+results/*.fig
+matlab_validation.log
+
+# Local reference document and extraction artifacts
+Time-Inverted_Kuramoto_Model_Meets_Lissajous_Curves_Multi-Robot_Persistent_Monitoring_and_Target_Detection.pdf
+paper_extracted.txt
+paper_page_*.png
+
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,24 @@
+{
+  "world_transforms": {
+    "robot_2/base_footprint": 1,
+    "robot_2/chassis_link": 1,
+    "robot_2/re_left_wheel_link": 1,
+    "robot_2/fr_right_wheel_link": 1,
+    "robot_3/base_footprint": 1,
+    "robot_3/chassis_link": 1,
+    "robot_3/re_left_wheel_link": 1,
+    "robot_3/fr_right_wheel_link": 1,
+    "robot_4/base_footprint": 1,
+    "robot_4/chassis_link": 1,
+    "robot_4/re_left_wheel_link": 1,
+    "robot_4/fr_right_wheel_link": 1
+  },
+  "late_subscriber_markers": 11,
+  "labels": [
+    "robot_1 (virtual)",
+    "robot_2",
+    "robot_3",
+    "robot_4",
+    "robot_5 (virtual)"
+  ]
+}

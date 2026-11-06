@@ -1,0 +1,25 @@
+{
+  "reason": "duration_reached",
+  "samples": 1801,
+  "min_pair_distance": 1.8257477417747752,
+  "detected": 10000,
+  "coverage": 1.0,
+  "coverage_per_agent": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "revisit_max": 139.10000000000002,
+  "contact_messages": 0,
+  "tracking_rms": 0.5114137719568759,
+  "tracking_max": 2.2921106710657724,
+  "formation_final": 0.08328188247043351,
+  "failed_control_updates": 657,
+  "solve_ms": {
+    "p50": 40.235767000012856,
+    "p95": 64.17496819922235,
+    "max": 83.64134800012835
+  }
+}

@@ -1,0 +1,13 @@
+# Numerical reference only: vehicle and dynamics remain those of the paper.
+A: 1.8
+B: 0.8
+a: 3
+b: 2
+omega: 0.3
+order: [1, 2, 5, 3, 4]
+p: 2
+feedback: true
+failure_start: 9.6
+failure_end: 19.5
+duration: 45.0
+seed: 42

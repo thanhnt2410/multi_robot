@@ -1,0 +1,25 @@
+{
+  "reason": "duration_reached",
+  "samples": 121,
+  "min_pair_distance": 1.810874958533792,
+  "detected": 10000,
+  "coverage": 1.0,
+  "coverage_per_agent": [
+    0.7512529030680846,
+    0.8442733162205109,
+    0.9991443588803325,
+    0.5149737195941816,
+    0.5339200586725339
+  ],
+  "revisit_max": 11.2,
+  "robot_contact_samples": 0,
+  "tracking_rms": 0.12951850923098654,
+  "tracking_max": 0.5342098029658089,
+  "formation_final": 0.06706913401068193,
+  "failed_control_updates": 11,
+  "solve_ms": {
+    "p50": 36.228504999598954,
+    "p95": 60.549891199480044,
+    "max": 66.23750099970493
+  }
+}

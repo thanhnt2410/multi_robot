@@ -1,0 +1,50 @@
+{
+  "passed": false,
+  "checks": {
+    "completed_180_sim_seconds": true,
+    "no_inter_robot_contact": false,
+    "separation_above_footprint_diameter": false,
+    "tracking_rms_below_15cm": true,
+    "tracking_max_below_50cm": true,
+    "failed_updates_below_5_percent": true,
+    "ideal_team_coverage_complete": true,
+    "ideal_targets_all_detected": true,
+    "agent_1_stopped_during_failure": true,
+    "agent_1_resumed": true,
+    "agent_5_stopped_during_failure": true,
+    "agent_5_resumed": true,
+    "expected_baseline_formation_degradation": true
+  },
+  "event_measurements": {
+    "stopped_agent_1_max_phase_rate": 0.0,
+    "agent_1_phase_progress_after_recovery": 0.7499999999999989,
+    "stopped_agent_5_max_phase_rate": 0.0,
+    "agent_5_phase_progress_after_recovery": 0.7500000000000062
+  },
+  "summary": {
+    "reason": "duration_reached",
+    "samples": 1801,
+    "min_pair_distance": 0.4599999491402484,
+    "detected": 10000,
+    "coverage": 1.0,
+    "coverage_per_agent": [
+      0.9996332966629996,
+      1.0,
+      0.9992665933259993,
+      0.515340422931182,
+      0.9986554210976654
+    ],
+    "revisit_max": 179.3,
+    "robot_contact_samples": 31810,
+    "tracking_rms": 0.13593393745070087,
+    "tracking_max": 0.3444422860907855,
+    "formation_final": 0.5615772808838555,
+    "failed_control_updates": 0,
+    "solve_ms": {
+      "p50": 41.48013799931505,
+      "p95": 52.065016000778996,
+      "max": 72.2319399992557
+    }
+  },
+  "failed_update_fraction": 0.0
+}

@@ -1,0 +1,19 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+    A: 7.2
+    B: 3.2
+    a: 3
+    b: 2
+    omega: 0.075
+    order: [1, 2, 5, 3, 4]
+    p: 2
+    wheelbase: 0.285
+    damping: 0.94
+    alpha: 36.8
+    beta: 0.94
+    max_steering: 0.3490658503988659
+    # Gazebo adapter allows zero throttle to brake/hold; paper uses min=0.1.
+    throttle_min: 0.0
+    throttle_max: 0.25
+    max_speed: 2.5

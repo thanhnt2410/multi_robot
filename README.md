@@ -1,5 +1,10 @@
 # Kuramoto–Lissajous Multi-Robot Simulation
 
+Đã bổ sung triển khai **ROS 2 Humble + Gazebo Fortress** cho xe Ackermann 2WD,
+Kuramoto–Lissajous và MPCC. Xem [hướng dẫn ROS 2](README_ROS2.md),
+[kế hoạch triển khai](PLAN_ROS2_SWARM_PATROL.md) và [CAD tham chiếu STEP](cad/README.md).
+Bản MATLAB nằm trong thư mục `matlab/`.
+
 Mô phỏng trên MATLAB phương pháp phối hợp đa robot để giám sát liên tục và
 phát hiện mục tiêu, dựa trên mô hình Kuramoto đảo thời gian kết hợp đường cong
 Lissajous.
@@ -14,6 +19,7 @@ IEEE Robotics and Automation Letters, 8(1), 240–247, 2023.
 Mở thư mục repository trong MATLAB và chạy:
 
 ```matlab
+cd matlab
 results = run_paper_simulation;
 test_paper_simulation;
 animate_paper_simulation(results.detection, 5);
@@ -46,13 +52,13 @@ Các tham số không được bài báo công bố đầy đủ được chọn
 Đây là mô phỏng phương pháp, chưa tái tạo chính xác mọi hình trong bài báo,
 chưa có thí nghiệm robot thật hay UAV 3D.
 
-![So sánh phản hồi với vòng hở khi robot dừng tạm thời](results/02_failure_comparison.png)
+![So sánh phản hồi với vòng hở khi robot dừng tạm thời](matlab/results/02_failure_comparison.png)
 
 ## Tài liệu dự án
 
 - [Hướng dẫn chi tiết và các giả thiết](README_MATLAB.md).
 - [Báo cáo tiến độ bài tập lớn](Bao_cao_tien_do_bai_tap_lon.md).
-- Tham số mô phỏng: `+tikm/config.m`.
-- Kiểm tra số học: `test_paper_simulation.m`.
+- Tham số mô phỏng: `matlab/+tikm/config.m`.
+- Kiểm tra số học: `matlab/test_paper_simulation.m`.
 
 PDF bài báo tham khảo không được đưa vào repository; truy cập qua DOI ở trên.

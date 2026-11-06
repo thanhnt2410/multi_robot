@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<!-- Adapted from Balakarthik15/Ros2_ackermann_robot; see LICENSE.upstream. -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="patrol_vehicle">
+  <xacro:arg name="robot_name" default="robot_2"/>
+  <xacro:arg name="controllers_file" default=""/>
+  <xacro:property name="robot_name" value="$(arg robot_name)"/>
+  <xacro:property name="prefix" value="${robot_name + '/'}"/>
+
+
+    
+    
+    
+    <xacro:property name="dimensions" value="${xacro.load_yaml('$(find ackermann_description)/config/vehicle.json')}"/>
+    <xacro:property name="body_mass" value="${dimensions['body_mass']}" />
+    <xacro:property name="body_length" value="${dimensions['body_length']}" />
+    <xacro:property name="body_width" value="${dimensions['body_width']}" />
+    <xacro:property name="body_height" value="${dimensions['body_height']}" />
+
+    <xacro:property name="wheelbase" value="${dimensions['wheelbase']}" />
+    <xacro:property name="track_width" value="${dimensions['track_width']}" />
+    
+    <xacro:property name="wheel_radius" value="${dimensions['wheel_radius']}" />
+    <xacro:property name="wheel_thickness" value="${dimensions['wheel_thickness']}" />
+    <xacro:property name="wheel_mass" value="${dimensions['wheel_mass']}" />
+    <xacro:property name="steering_mass" value="${dimensions['steering_mass']}" />
+
+    
+    <xacro:property name="max_steering_angle" value="${pi/4}" />
+
+    <xacro:property name="lidar_radius" value="0.035" />
+    <xacro:property name="lidar_height" value="0.055" />
+    <xacro:property name="lidar_mass" value="0.05" />
+
+    
+    <xacro:property name="half_body_length" value="${body_length / 2}" />
+    <xacro:property name="half_body_height" value="${body_height / 2}" />
+
+    <xacro:property name="half_track_width" value="${track_width / 2}" />
+    <xacro:property name="front_axle_offset" value="${wheelbase / 2}" />
+    <xacro:property name="rear_axle_offset" value="${-wheelbase / 2}" />
+
+
+    
+    
+    
+    <link name="${prefix}base_footprint">
+    </link>
+
+    
+    
+    
+    <link name="${prefix}base_link">
+    </link>
+    
+    <joint name="${prefix}base_joint" type="fixed">
+        <parent link="${prefix}base_footprint" />
+        <child link="${prefix}base_link" />
+        <origin xyz="${wheelbase/2} 0 0" rpy="0 0 0" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}chassis_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+            <mass value="${body_mass}" />
+            <inertia ixx="${body_mass/12 * (body_width*body_width + body_height*body_height)}" ixy="0" ixz="0" iyy="${body_mass/12 * (body_length*body_length + body_height*body_height)}" iyz="0" izz="${body_mass/12 * (body_length*body_length + body_width*body_width)}" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${body_length} ${body_width} ${body_height}" />
+            </geometry>
+            <material name="red">
+                <color rgba="0.25 0.25 0.25 1.0" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${body_length} ${body_width} ${body_height}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}chassis_joint" type="fixed">
+        <parent link="${prefix}base_link" />
+        <child link="${prefix}chassis_link" />
+        
+        <origin xyz=" 0.0 0.0 ${wheel_radius + body_height/2}" rpy="0 0 0" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}fr_left_steer_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${steering_mass}" />
+            <inertia ixx="${steering_mass/12*(3*0.01*0.01+0.03*0.03)}" ixy="0" ixz="0" iyy="${steering_mass/12*(3*0.01*0.01+0.03*0.03)}" iyz="0" izz="${steering_mass/2*0.01*0.01}" />
+        </inertial>
+
+        
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03" />
+            </geometry>
+            <material name="steer_red">
+                <color rgba="0.8 0.1 0.1 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03" />
+            </geometry>
+        </collision>
+        
+    </link>
+
+    <joint name="${prefix}fr_left_steer_joint" type="revolute">
+        <parent link="${prefix}chassis_link" />
+        <child link="${prefix}fr_left_steer_link" />
+        <origin xyz="${front_axle_offset} ${half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="2.0" />
+        <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}fr_left_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${wheel_mass}" />
+            <inertia ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" ixy="0" ixz="0" iyy="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" iyz="0" izz="${wheel_mass/2 * wheel_radius*wheel_radius}" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+            <material name="wheel_dark">
+                <color rgba="0.35 0.35 0.35 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}fr_left_wheel_joint" type="continuous">
+        <parent link="${prefix}fr_left_steer_link" />
+        <child link="${prefix}fr_left_wheel_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.0" damping="0.0001" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}fr_right_steer_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${steering_mass}" />
+            <inertia ixx="${steering_mass/12*(3*0.01*0.01+0.03*0.03)}" ixy="0" ixz="0" iyy="${steering_mass/12*(3*0.01*0.01+0.03*0.03)}" iyz="0" izz="${steering_mass/2*0.01*0.01}" />
+        </inertial>
+
+        
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03" />
+            </geometry>
+            <material name="steer_red2">
+                <color rgba="0.8 0.1 0.1 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03" />
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name="${prefix}fr_right_steer_joint" type="revolute">
+        <parent link="${prefix}chassis_link" />
+        <child link="${prefix}fr_right_steer_link" />
+        <origin xyz="${front_axle_offset} ${-half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="2.0" />
+        <dynamics damping="0.1" friction="0.1" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}fr_right_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${wheel_mass}" />
+            <inertia ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" ixy="0" ixz="0" iyy="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" iyz="0" izz="${wheel_mass/2 * wheel_radius*wheel_radius}" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+            <material name="wheel_dark2">
+                <color rgba="0.35 0.35 0.35 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}fr_right_wheel_joint" type="continuous">
+        <parent link="${prefix}fr_right_steer_link" />
+        <child link="${prefix}fr_right_wheel_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.0" damping="0.0001" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}re_left_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${wheel_mass}" />
+            <inertia ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" ixy="0" ixz="0" iyy="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" iyz="0" izz="${wheel_mass/2 * wheel_radius*wheel_radius}" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+            <material name="wheel_dark3">
+                <color rgba="0.35 0.35 0.35 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}re_left_wheel_joint" type="continuous">
+        <parent link="${prefix}chassis_link" />
+        <child link="${prefix}re_left_wheel_link" />
+        <origin xyz="${rear_axle_offset} ${half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.0" damping="0.0001" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
+    </joint>
+
+    
+    
+    
+    <link name="${prefix}re_right_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <mass value="${wheel_mass}" />
+            <inertia ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" ixy="0" ixz="0" iyy="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}" iyz="0" izz="${wheel_mass/2 * wheel_radius*wheel_radius}" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+            <material name="wheel_dark4">
+                <color rgba="0.35 0.35 0.35 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}re_right_wheel_joint" type="continuous">
+        <parent link="${prefix}chassis_link" />
+        <child link="${prefix}re_right_wheel_link" />
+        <origin xyz="${rear_axle_offset} ${-half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.0" damping="0.0001" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
+    </joint>
+
+    
+    
+    
+    
+  <ros2_control name="${robot_name}_system" type="system">
+    <hardware><plugin>gz_ros2_control/GazeboSimSystem</plugin></hardware>
+    <joint name="${prefix}re_right_wheel_joint">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+    <joint name="${prefix}re_left_wheel_joint">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+    <joint name="${prefix}fr_right_steer_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+    <joint name="${prefix}fr_left_steer_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+    <joint name="${prefix}fr_right_wheel_joint">
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+    <joint name="${prefix}fr_left_wheel_joint">
+      <state_interface name="position"/><state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(arg controllers_file)</parameters>
+      <ros>
+        <namespace>/${robot_name}</namespace>
+        <!-- Fortress shares ROS arguments across model plugins. Keep the same
+             absolute remappings in every instance, as with controllers.yaml. -->
+        <remapping>/robot_1/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+        <remapping>/robot_2/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+        <remapping>/robot_3/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+        <remapping>/robot_4/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+        <remapping>/robot_5/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+      </ros>
+    </plugin>
+    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+      <odom_frame>world</odom_frame><robot_base_frame>${prefix}base_footprint</robot_base_frame>
+      <odom_publish_frequency>50</odom_publish_frequency><dimensions>3</dimensions>
+      <odom_topic>/model/${robot_name}/ground_truth</odom_topic>
+    </plugin>
+  </gazebo>
+  <gazebo reference="${prefix}chassis_link">
+    <sensor name="body_contact" type="contact">
+      <always_on>true</always_on><update_rate>50</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}base_footprint_fixed_joint_lump__${prefix}chassis_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}fr_left_wheel_link"><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+  <gazebo reference="${prefix}fr_right_wheel_link"><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+  <gazebo reference="${prefix}re_left_wheel_link"><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+  <gazebo reference="${prefix}re_right_wheel_link"><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+  <gazebo reference="${prefix}fr_left_wheel_link">
+    <sensor name="fr_left_wheel_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}fr_left_wheel_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}fr_right_wheel_link">
+    <sensor name="fr_right_wheel_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}fr_right_wheel_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}re_left_wheel_link">
+    <sensor name="re_left_wheel_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}re_left_wheel_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}re_right_wheel_link">
+    <sensor name="re_right_wheel_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}re_right_wheel_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}fr_left_steer_link">
+    <sensor name="fr_left_steer_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}fr_left_steer_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="${prefix}fr_right_steer_link">
+    <sensor name="fr_right_steer_link_contact" type="contact">
+      <always_on>true</always_on><update_rate>20</update_rate>
+      <topic>/model/${robot_name}/contacts</topic>
+      <contact><topic>/model/${robot_name}/contacts</topic><collision>${prefix}fr_right_steer_link_collision</collision></contact>
+    </sensor>
+  </gazebo>
+</robot>

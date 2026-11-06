@@ -1,0 +1,94 @@
+{
+  "straight": {
+    "speed": 0.39999999883965687,
+    "yaw_rate": 2.384038671792062e-15,
+    "speed_relative_error": 2.900857887233599e-09,
+    "passed": true,
+    "joint_positions": {
+      "robot_2/re_right_wheel_joint": 43.5636363634508,
+      "robot_2/re_left_wheel_joint": 43.5636363634508,
+      "robot_2/fr_right_steer_joint": -5.771245745717202e-18,
+      "robot_2/fr_left_steer_joint": 3.773451252779575e-18,
+      "robot_2/fr_right_wheel_joint": 43.25332265145129,
+      "robot_2/fr_left_wheel_joint": 43.25332265145088
+    },
+    "joint_velocities": {
+      "robot_2/re_right_wheel_joint": 7.272727272719228,
+      "robot_2/re_left_wheel_joint": 7.272727272719228,
+      "robot_2/fr_right_steer_joint": 5.781778761344314e-17,
+      "robot_2/fr_left_steer_joint": 4.3221994445968295e-17,
+      "robot_2/fr_right_wheel_joint": 7.272727220188627,
+      "robot_2/fr_left_wheel_joint": 7.27272722018861
+    }
+  },
+  "left": {
+    "speed": 0.39309750397241466,
+    "yaw_rate": 0.3782985156142316,
+    "speed_relative_error": 0.017256240068963397,
+    "yaw_relative_error": 0.054253710964421026,
+    "radius": 1.039119868958921,
+    "passed": true,
+    "joint_positions": {
+      "robot_2/re_right_wheel_joint": 93.10415123974097,
+      "robot_2/re_left_wheel_joint": 81.1503942138158,
+      "robot_2/fr_right_steer_joint": 0.2449786629916467,
+      "robot_2/fr_left_steer_joint": 0.32000535532657604,
+      "robot_2/fr_right_wheel_joint": 91.74989517552741,
+      "robot_2/fr_left_wheel_joint": 83.96625036112121
+    },
+    "joint_velocities": {
+      "robot_2/re_right_wheel_joint": 8.290909089680786,
+      "robot_2/re_left_wheel_joint": 6.254545455667743,
+      "robot_2/fr_right_steer_joint": 9.611916106502012e-13,
+      "robot_2/fr_left_steer_joint": 5.071332040990194e-12,
+      "robot_2/fr_right_wheel_joint": 8.17861850754993,
+      "robot_2/fr_left_wheel_joint": 6.819171451443218
+    }
+  },
+  "right": {
+    "speed": 0.39736793597640324,
+    "yaw_rate": -0.37395682962163285,
+    "speed_relative_error": 0.006580160058991952,
+    "yaw_relative_error": 0.06510792594591794,
+    "radius": 1.0626037673344744,
+    "passed": true,
+    "joint_positions": {
+      "robot_2/re_right_wheel_joint": 131.0670764033213,
+      "robot_2/re_left_wheel_joint": 130.6056508678326,
+      "robot_2/fr_right_steer_joint": -0.32000535535263674,
+      "robot_2/fr_left_steer_joint": -0.24497866302182644,
+      "robot_2/fr_right_wheel_joint": 133.0251666404466,
+      "robot_2/fr_left_wheel_joint": 132.3794472607548
+    },
+    "joint_velocities": {
+      "robot_2/re_right_wheel_joint": 6.254545455380784,
+      "robot_2/re_left_wheel_joint": 8.290909089971425,
+      "robot_2/fr_right_steer_joint": 3.016916935710275e-11,
+      "robot_2/fr_left_steer_joint": 2.555553562366991e-11,
+      "robot_2/fr_right_wheel_joint": 6.639736230833676,
+      "robot_2/fr_left_wheel_joint": 8.044559657667142
+    }
+  },
+  "stop": {
+    "speed": 0.0,
+    "yaw_rate": 0.0,
+    "passed": true,
+    "joint_positions": {
+      "robot_2/re_right_wheel_joint": 131.12962185798605,
+      "robot_2/re_left_wheel_joint": 130.68855995891394,
+      "robot_2/fr_right_steer_joint": -4.781368653587865e-06,
+      "robot_2/fr_left_steer_joint": -3.223785516839993e-06,
+      "robot_2/fr_right_wheel_joint": 133.1983454732232,
+      "robot_2/fr_left_wheel_joint": 132.96392558207413
+    },
+    "joint_velocities": {
+      "robot_2/re_right_wheel_joint": -2.1637144210508026e-11,
+      "robot_2/re_left_wheel_joint": 2.1638544625361912e-11,
+      "robot_2/fr_right_steer_joint": 5.3124378463818636e-05,
+      "robot_2/fr_left_steer_joint": 3.5817899173344126e-05,
+      "robot_2/fr_right_wheel_joint": -2.491438709625262e-05,
+      "robot_2/fr_left_wheel_joint": 1.3476618814877257e-05
+    }
+  },
+  "passed": true
+}

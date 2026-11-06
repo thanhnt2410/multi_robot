@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": {
+    "completed_180_sim_seconds": true,
+    "no_inter_robot_contact": true,
+    "separation_above_footprint_diameter": true,
+    "tracking_rms_below_15cm": true,
+    "tracking_max_below_50cm": true,
+    "failed_updates_below_5_percent": true,
+    "ideal_team_coverage_complete": true,
+    "ideal_targets_all_detected": true,
+    "formation_recovered_below_0_03_rad": true,
+    "injected_phase_jump_observed": true
+  },
+  "event_measurements": {
+    "observed_phase_jump": 0.10641384666641573
+  },
+  "summary": {
+    "reason": "duration_reached",
+    "samples": 1801,
+    "min_pair_distance": 10.900380301726772,
+    "detected": 10000,
+    "coverage": 1.0,
+    "coverage_per_agent": [
+      0.9996332966629996,
+      1.0,
+      0.9996332966629996,
+      0.9992665933259993,
+      1.0
+    ],
+    "revisit_max": 173.1,
+    "robot_contact_samples": 0,
+    "tracking_rms": 0.04190408523680251,
+    "tracking_max": 0.2457879608917515,
+    "formation_final": 0.0005282595630927266,
+    "failed_control_updates": 3,
+    "solve_ms": {
+      "p50": 30.70506750009372,
+      "p95": 40.92133649874086,
+      "max": 94.0089439991425
+    }
+  },
+  "failed_update_fraction": 0.0005555555555555556
+}

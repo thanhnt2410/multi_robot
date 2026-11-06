@@ -1,0 +1,87 @@
+{
+  "scenario": {
+    "A": 43.2,
+    "B": 19.2,
+    "a": 3,
+    "b": 2,
+    "omega": 0.0125,
+    "order": [
+      1,
+      2,
+      5,
+      3,
+      4
+    ],
+    "p": 2
+  },
+  "physical_ids": [
+    2,
+    3,
+    4
+  ],
+  "seed": 42,
+  "duration": 180.0,
+  "sensing_radius": 30.852483076731442,
+  "target_count": 10000,
+  "target_speed": [
+    0.2,
+    1.0
+  ],
+  "bounds": {
+    "robot_radius": 3.6068312996854166,
+    "coverage_radius": 30.547012947258853,
+    "detection_radius": 27.787264165542798,
+    "detection_time": 100.53096491487338
+  },
+  "max_path_curvature": 1.1015856611277093,
+  "python": "3.10.12",
+  "numpy": "1.21.5",
+  "source_revision": "42e50d7958b4ccb1fe9d185e946ae941983aeb37",
+  "limitations": [
+    "sampled ideal disk sensing",
+    "no explicit MPCC collision constraints",
+    "virtual agents have no physical collision bodies",
+    "zero-throttle adapter differs from paper"
+  ],
+  "feedback": true,
+  "failure_start": 999.0,
+  "failure_end": 1000.0,
+  "perturb_time": -1.0,
+  "perturb_amount": 0.12,
+  "perturb_agent": 1,
+  "ros_packages": {
+    "ros-humble-gz-ros2-control": "0.7.18-1jammy.20260325.235446",
+    "ros-humble-ackermann-steering-controller": "2.52.1-1jammy.20260325.235040",
+    "ros-humble-controller-manager": "2.53.1-1jammy.20260325.233100"
+  },
+  "source_hashes": {
+    "src/lissajous_path/setup.py": "177adb487d25d817f1641806070d562158ba708f6f9241e814ecf6847261b753",
+    "src/lissajous_path/lissajous_path/core.py": "3010917fe8d003ac8297c40986d05dc1fe7491633bd95620a6877357e650feb5",
+    "src/lissajous_path/lissajous_path/ros_config.py": "3b44ebff658ae53bea61ccc7506cfc715d6106288ffc8026bd6cb6bc445ad546",
+    "src/lissajous_path/lissajous_path/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/ackermann_mpcc/setup.py": "9ddb1e645657a601f9b8209ffec41a65eeaecca38849e663ad4ab90355597f4b",
+    "src/ackermann_mpcc/ackermann_mpcc/run.py": "0538bed108b42be8bda153d1ce6adad04cd50bd929ba3c88359811007ebf4dc5",
+    "src/ackermann_mpcc/ackermann_mpcc/solver.py": "1da0d6968435c626f7f2a8a397fdc60695ed21d81a2ce933ae4f8cddd88a55b9",
+    "src/ackermann_mpcc/ackermann_mpcc/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/ackermann_mpcc/ackermann_mpcc/node.py": "254bc1205405aa88485b7c795224f324401577d783fe79f72022cbd710889a81",
+    "src/ackermann_gazebo/config/controllers.yaml": "8942faf70a1b24b276e96c408f6ec2dc1d07cf570d45de4a30d9574328f540e6",
+    "src/ackermann_description/urdf/vehicle.urdf.xacro": "2dd96bf945c4bb9c6e9d1e95b2ccca3f8c5d5dcfb92921223fb8de4832ce565a",
+    "src/ackermann_description/config/vehicle.json": "8eea3b8127853e9a98627dabb921cda33175b5c4e93b30ebe75170a6d4ee949b",
+    "src/swarm_interfaces/msg/PhaseState.msg": "56b319a61860b63ca6f3444e644e74c2aa18a27664782e5437e314e71ac7fc2d",
+    "src/swarm_interfaces/msg/ControlStatus.msg": "ef5f73266605fda858af59b54588a2102163e824a1c00ec1811c1b85ea7fd48f",
+    "src/swarm_interfaces/msg/PhaseReference.msg": "f311490e613cea67a8788dc680fe2e689f55f0f8cc807ef7a9461ca031798e22",
+    "src/multi_robot_bringup/launch/patrol.launch.py": "1cf484b0eead3399857bce9363e663a8217e344362181dceb5bed2fd1e1f048a",
+    "src/multi_robot_bringup/config/scaled.yaml": "b337deb28a4477527426372f3fd5f40fea321005162e54429c692ad2a4b57209",
+    "src/multi_robot_bringup/config/feasible.yaml": "b998907f352e8281267de18764c196457521ffb202d7c0b5564ff0a252686b2c",
+    "src/multi_robot_bringup/config/paper.yaml": "3ff38135a1bf2ef0e096782287d703a7e0d95f109deb428e9ec65ecf396fc417",
+    "src/multi_robot_bringup/config/mpcc.yaml": "1b094cb200de85ea8caf9dd7a341b0ebc9f5632c3f51836b125bf2ad43bbf2af",
+    "src/patrol_evaluation/setup.py": "f04abc079e2a8bbb12c71a236af6765dc86f3eea872318ceb0f717f4c4d486ca",
+    "src/patrol_evaluation/patrol_evaluation/offline.py": "ae566140711fba12654df9c4171e11c31c801513281402adbc41bd097e148b92",
+    "src/patrol_evaluation/patrol_evaluation/metrics.py": "e8469d08eb4fef15ed9905ad9ad627b02aad4e2333a7c0c8003d7b49364f2fd5",
+    "src/patrol_evaluation/patrol_evaluation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/patrol_evaluation/patrol_evaluation/node.py": "e0d25bfc17e686830b43587df4a59ccabe9d56b154f5f417bb51dea64749ef57",
+    "src/swarm_coordination/setup.py": "4c6437042b8cfdd33a74d532f68d96761ba3d4f162b30ddcc8abb4a4c11f4b1f",
+    "src/swarm_coordination/swarm_coordination/agent.py": "975335b6afe4b26aa625fbc15a0c43ccebc47b9424fe01a4ba390b8290119192",
+    "src/swarm_coordination/swarm_coordination/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

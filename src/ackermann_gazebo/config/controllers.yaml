@@ -1,0 +1,145 @@
+/robot_1/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+/robot_1/ackermann_steering_controller:
+  ros__parameters:
+    wheelbase: 0.285
+    front_wheel_track: 0.28
+    rear_wheel_track: 0.28
+    front_wheels_radius: 0.055
+    rear_wheels_radius: 0.055
+    front_steering: true
+    rear_wheels_names:
+    - robot_1/re_right_wheel_joint
+    - robot_1/re_left_wheel_joint
+    front_wheels_names:
+    - robot_1/fr_right_steer_joint
+    - robot_1/fr_left_steer_joint
+    use_stamped_vel: true
+    open_loop: false
+    position_feedback: false
+    reference_timeout: 0.2
+    base_frame_id: robot_1/base_footprint
+    odom_frame_id: robot_1/odom
+    enable_odom_tf: true
+/robot_2/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+/robot_2/ackermann_steering_controller:
+  ros__parameters:
+    wheelbase: 0.285
+    front_wheel_track: 0.28
+    rear_wheel_track: 0.28
+    front_wheels_radius: 0.055
+    rear_wheels_radius: 0.055
+    front_steering: true
+    rear_wheels_names:
+    - robot_2/re_right_wheel_joint
+    - robot_2/re_left_wheel_joint
+    front_wheels_names:
+    - robot_2/fr_right_steer_joint
+    - robot_2/fr_left_steer_joint
+    use_stamped_vel: true
+    open_loop: false
+    position_feedback: false
+    reference_timeout: 0.2
+    base_frame_id: robot_2/base_footprint
+    odom_frame_id: robot_2/odom
+    enable_odom_tf: true
+/robot_3/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+/robot_3/ackermann_steering_controller:
+  ros__parameters:
+    wheelbase: 0.285
+    front_wheel_track: 0.28
+    rear_wheel_track: 0.28
+    front_wheels_radius: 0.055
+    rear_wheels_radius: 0.055
+    front_steering: true
+    rear_wheels_names:
+    - robot_3/re_right_wheel_joint
+    - robot_3/re_left_wheel_joint
+    front_wheels_names:
+    - robot_3/fr_right_steer_joint
+    - robot_3/fr_left_steer_joint
+    use_stamped_vel: true
+    open_loop: false
+    position_feedback: false
+    reference_timeout: 0.2
+    base_frame_id: robot_3/base_footprint
+    odom_frame_id: robot_3/odom
+    enable_odom_tf: true
+/robot_4/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+/robot_4/ackermann_steering_controller:
+  ros__parameters:
+    wheelbase: 0.285
+    front_wheel_track: 0.28
+    rear_wheel_track: 0.28
+    front_wheels_radius: 0.055
+    rear_wheels_radius: 0.055
+    front_steering: true
+    rear_wheels_names:
+    - robot_4/re_right_wheel_joint
+    - robot_4/re_left_wheel_joint
+    front_wheels_names:
+    - robot_4/fr_right_steer_joint
+    - robot_4/fr_left_steer_joint
+    use_stamped_vel: true
+    open_loop: false
+    position_feedback: false
+    reference_timeout: 0.2
+    base_frame_id: robot_4/base_footprint
+    odom_frame_id: robot_4/odom
+    enable_odom_tf: true
+/robot_5/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+/robot_5/ackermann_steering_controller:
+  ros__parameters:
+    wheelbase: 0.285
+    front_wheel_track: 0.28
+    rear_wheel_track: 0.28
+    front_wheels_radius: 0.055
+    rear_wheels_radius: 0.055
+    front_steering: true
+    rear_wheels_names:
+    - robot_5/re_right_wheel_joint
+    - robot_5/re_left_wheel_joint
+    front_wheels_names:
+    - robot_5/fr_right_steer_joint
+    - robot_5/fr_left_steer_joint
+    use_stamped_vel: true
+    open_loop: false
+    position_feedback: false
+    reference_timeout: 0.2
+    base_frame_id: robot_5/base_footprint
+    odom_frame_id: robot_5/odom
+    enable_odom_tf: true

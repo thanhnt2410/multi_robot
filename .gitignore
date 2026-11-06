@@ -19,3 +19,13 @@ paper_page_*.png
 .agents/
 Thumbs.db
 Desktop.ini
+
+# ROS 2 / Python build and experiment artifacts
+build/
+install/
+log/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+patrol_runs/

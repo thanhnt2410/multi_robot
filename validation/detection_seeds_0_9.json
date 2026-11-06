@@ -1,0 +1,72 @@
+[
+  {
+    "seed": 0,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 1,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 2,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 3,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 4,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 5,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 6,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 7,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 8,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  },
+  {
+    "seed": 9,
+    "detected": 10000,
+    "coverage": 1.0,
+    "duration": 10.5,
+    "min_pair_distance": 0.3066596198464162
+  }
+]

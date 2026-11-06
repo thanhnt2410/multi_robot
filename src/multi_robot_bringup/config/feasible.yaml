@@ -1,0 +1,19 @@
+# Optional physically feasible variant: paper geometry x24, omega /24.
+# This is an engineering variant, not the paper's experimental dimensions.
+A: 43.2
+B: 19.2
+a: 3
+b: 2
+omega: 0.0125
+order: [1, 2, 5, 3, 4]
+p: 2
+feedback: true
+failure_start: 38.4
+failure_end: 78.0
+perturb_time: -1.0
+perturb_amount: 0.12
+duration: 180.0
+seed: 42
+target_count: 10000
+target_speed_min: 0.2
+target_speed_max: 1.0

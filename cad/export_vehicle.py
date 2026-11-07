@@ -1,41 +1,70 @@
-"""Editable reference CAD matching the URDF primitives, in millimetres.
+"""Export the editable detailed assembly (mm) and matching articulated URDF meshes.
 
-This is a geometry development starting point, not a fabrication-ready design.
-Run with cadquery==2.5.2 in a separate environment from ROS.
+Run in the isolated CadQuery environment: python cad/export_vehicle.py.
 """
 import argparse
 import json
+from collections import defaultdict
 from pathlib import Path
+import xml.etree.ElementTree as ET
 
 import cadquery as cq
 
-
-def build(dimensions):
-    d={k:v*1000 for k,v in dimensions.items() if 'mass' not in k}
-    assembly=cq.Assembly(name='ackermann_2wd_reference')
-    chassis=cq.Workplane('XY').box(d['body_length'],d['body_width'],d['body_height'])
-    chassis=chassis.translate((d['wheelbase']/2,0,d['wheel_radius']+d['body_height']/2))
-    assembly.add(chassis,name='chassis',color=cq.Color(.25,.35,.65))
-    for axle,x in [('rear',0),('front',d['wheelbase'])]:
-        for side,sign in [('left',1),('right',-1)]:
-            y=sign*d['track_width']/2
-            wheel=cq.Solid.makeCylinder(d['wheel_radius'],d['wheel_thickness'],
-                cq.Vector(x,y-d['wheel_thickness']/2,d['wheel_radius']),cq.Vector(0,1,0))
-            assembly.add(wheel,name=f'{axle}_{side}_wheel',color=cq.Color(.12,.12,.12))
-            if axle=='front':
-                hub=cq.Solid.makeCylinder(10,30,cq.Vector(x,y-15,d['wheel_radius']),cq.Vector(0,1,0))
-                assembly.add(hub,name=f'front_{side}_steering_hub',color=cq.Color(.8,.15,.1))
-    return assembly
+from mechanical_vehicle import COLORS, parts, assembly
 
 
 def main():
     root=Path(__file__).resolve().parent.parent
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dimensions',type=Path,default=root/'src/ackermann_description/config/vehicle.json')
-    parser.add_argument('--output',type=Path,default=root/'cad/ackermann_reference.step')
-    args=parser.parse_args();assembly=build(json.loads(args.dimensions.read_text()))
-    assembly.save(str(args.output))
-    print(f'Exported {args.output}')
+    parser.add_argument('--output',type=Path,default=root/'cad/ackermann_mechanical.step')
+    parser.add_argument('--description-dir',type=Path,default=root/'src/ackermann_description')
+    args=parser.parse_args()
+    dimensions=json.loads(args.dimensions.read_text())
+    components=parts(dimensions)
+    for p in components:
+        if not p.shape.isValid() or p.shape.Volume()<=0:
+            raise RuntimeError(f'Invalid or empty solid: {p.name}')
+    model=assembly(dimensions,components)
+    args.output.parent.mkdir(parents=True,exist_ok=True)
+    model.save(str(args.output))
+    grouped=defaultdict(list)
+    for p in components:grouped[(p.group,p.material)].append(p.shape)
+    mesh_dir=args.description_dir/'meshes/mechanical'
+    mesh_dir.mkdir(parents=True,exist_ok=True)
+    # Mesh vertices stay in mm; the generated URDF applies the 0.001 conversion.
+    ns='http://www.ros.org/wiki/xacro';ET.register_namespace('xacro',ns)
+    robot=ET.Element('robot',{'xmlns:xacro':ns})
+    manifest={'units':'mm','dimensions':dimensions,'assembly_file':args.output.name,
+              'kinematics':'two rear gearmotors, two independent direct kingpin steering servos',
+              'parts':[],'meshes':[]}
+    for group in ('chassis','steer_left','steer_right','wheel'):
+        macro=ET.SubElement(robot,'xacro:macro',{'name':f'mechanical_{group}','params':''})
+        for (g,material),shapes in sorted(grouped.items()):
+            if g!=group:continue
+            name=f'{g}_{material}.stl'
+            compound=cq.Compound.makeCompound(shapes)
+            cq.exporters.export(compound,str(mesh_dir/name),tolerance=.35,angularTolerance=.15)
+            visual=ET.SubElement(macro,'visual',{'name':f'mechanical_{g}_{material}'})
+            geometry=ET.SubElement(visual,'geometry')
+            ET.SubElement(geometry,'mesh',{'filename':f'package://ackermann_description/meshes/mechanical/{name}',
+                                         'scale':'0.001 0.001 0.001'})
+            mat=ET.SubElement(visual,'material',{'name':f'mech_{material}'})
+            ET.SubElement(mat,'color',{'rgba':' '.join(str(v) for v in (*COLORS[material],1.))})
+            manifest['meshes'].append(name)
+    for p in components:
+        b=p.shape.BoundingBox()
+        manifest['parts'].append({'name':p.name,'link_group':p.group,'material':p.material,
+            'solids':len(p.shape.Solids()),'volume_mm3':p.shape.Volume(),
+            'bounds_mm':[b.xmin,b.ymin,b.zmin,b.xmax,b.ymax,b.zmax],
+            'assembly_quantity':4 if p.group=='wheel' else 1,'note':p.note})
+    manifest['part_instances']=sum(p['assembly_quantity'] for p in manifest['parts'])
+    ET.indent(robot,space='  ')
+    (args.description_dir/'urdf/mechanical_visuals.xacro').write_text(
+        '<?xml version="1.0"?>\n<!-- Generated by cad/export_vehicle.py; edit CAD source instead. -->\n'+
+        ET.tostring(robot,encoding='unicode')+'\n')
+    (args.output.parent/'mechanical_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    print(f'Exported {args.output}: {manifest["part_instances"]} part instances, {len(grouped)} meshes')
 
 
 if __name__=='__main__':main()

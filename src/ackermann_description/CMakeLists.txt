@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(ackermann_description)
 find_package(ament_cmake REQUIRED)
-foreach(dir urdf config launch worlds rviz)
+foreach(dir urdf config meshes launch worlds rviz)
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${dir}")
     install(DIRECTORY ${dir} DESTINATION share/${PROJECT_NAME})
   endif()

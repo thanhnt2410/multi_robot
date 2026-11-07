@@ -19,7 +19,7 @@ def main():
     parser.add_argument('--baseline-rerun',type=Path)
     parser.add_argument('--perturbation-rerun',type=Path)
     args=parser.parse_args();root=Path(__file__).resolve().parent.parent
-    target=root/'validation/gazebo_suite';target.mkdir(exist_ok=True)
+    target=root/'validation/gazebo_suite';target.mkdir(parents=True,exist_ok=True)
     results=json.loads((args.suite/'suite_summary.json').read_text())
     sources={name:args.suite/name for name in results}
     historical={}

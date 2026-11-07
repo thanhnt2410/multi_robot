@@ -1,7 +1,0 @@
-{
-  "passed": true,
-  "raw_contact_records": 70,
-  "robot_contact_pairs": [
-    "robot_2::robot_2/fr_left_wheel_link::robot_2/fr_left_wheel_link_collision robot_99::body::robot_99_collision"
-  ]
-}

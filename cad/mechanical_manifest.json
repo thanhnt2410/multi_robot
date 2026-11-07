@@ -1,0 +1,1435 @@
+{
+  "units": "mm",
+  "dimensions": {
+    "body_mass": 1.58,
+    "body_length": 0.46,
+    "body_width": 0.21,
+    "body_height": 0.11,
+    "wheelbase": 0.285,
+    "track_width": 0.28,
+    "wheel_radius": 0.055,
+    "wheel_thickness": 0.07,
+    "wheel_mass": 0.12,
+    "steering_mass": 0.02
+  },
+  "assembly_file": "ackermann_mechanical.step",
+  "kinematics": "two rear gearmotors, two independent direct kingpin steering servos",
+  "parts": [
+    {
+      "name": "lower_deck_4mm",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 337659.46551139606,
+      "bounds_mm": [
+        -230.00000010000005,
+        -105.00000010000005,
+        -47.00118890185977,
+        230.00000010000005,
+        105.00000010000005,
+        -42.99881109814027
+      ],
+      "assembly_quantity": 1,
+      "note": "M3 clearance holes 3.4 mm; lightening windows"
+    },
+    {
+      "name": "frame_rail_-1",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 31680.0,
+      "bounds_mm": [
+        -177.0000001,
+        -88.00000010000001,
+        -43.0000001,
+        153.0000001,
+        -75.99999989999999,
+        -26.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "frame_rail_1",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 31680.0,
+      "bounds_mm": [
+        -177.0000001,
+        75.99999989999999,
+        -43.0000001,
+        153.0000001,
+        88.00000010000001,
+        -26.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_crossmember",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 50544.0,
+      "bounds_mm": [
+        -151.5000001,
+        -117.0000001,
+        -47.0000001,
+        -133.4999999,
+        117.0000001,
+        -34.9999999
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "front_crossmember",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 50544.0,
+      "bounds_mm": [
+        133.4999999,
+        -117.0000001,
+        -47.0000001,
+        151.5000001,
+        117.0000001,
+        -34.9999999
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "standoff_-95_-70",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 2018.1277047395465,
+      "bounds_mm": [
+        -99.00279728084642,
+        -74.00279728084642,
+        -43.00279728084642,
+        -90.99720271915358,
+        -65.99720271915358,
+        6.002797280846423
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "deck_screw_-95_-70",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 56.54866776461627,
+      "bounds_mm": [
+        -98.00209798563482,
+        -73.00209798563482,
+        9.997902014365184,
+        -91.99790201436518,
+        -66.99790201436518,
+        12.002097985634816
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "standoff_-95_70",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 2018.1277047395465,
+      "bounds_mm": [
+        -99.00279728084642,
+        65.99720271915358,
+        -43.00279728084642,
+        -90.99720271915358,
+        74.00279728084642,
+        6.002797280846423
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "deck_screw_-95_70",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 56.54866776461627,
+      "bounds_mm": [
+        -98.00209798563482,
+        66.99790201436518,
+        9.997902014365184,
+        -91.99790201436518,
+        73.00209798563482,
+        12.002097985634816
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "standoff_65_-70",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 2018.127704739546,
+      "bounds_mm": [
+        60.99720271915358,
+        -74.00279728084642,
+        -43.00279728084642,
+        69.00279728084642,
+        -65.99720271915358,
+        6.002797280846423
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "deck_screw_65_-70",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 56.54866776461627,
+      "bounds_mm": [
+        61.99790201436518,
+        -73.00209798563482,
+        9.997902014365184,
+        68.00209798563482,
+        -66.99790201436518,
+        12.002097985634816
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "standoff_65_70",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 2018.127704739546,
+      "bounds_mm": [
+        60.99720271915358,
+        65.99720271915358,
+        -43.00279728084642,
+        69.00279728084642,
+        74.00279728084642,
+        6.002797280846423
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "deck_screw_65_70",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 56.54866776461627,
+      "bounds_mm": [
+        61.99790201436518,
+        66.99790201436518,
+        9.997902014365184,
+        68.00209798563482,
+        73.00209798563482,
+        12.002097985634816
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "upper_equipment_deck",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 79766.04956677352,
+      "bounds_mm": [
+        -115.00000010000005,
+        -82.00000010000005,
+        6.4988110981402665,
+        85.00000010000005,
+        82.00000010000005,
+        9.501188901859734
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "battery_pack",
+      "link_group": "chassis",
+      "material": "battery",
+      "solids": 1,
+      "volume_mm3": 165600.0,
+      "bounds_mm": [
+        -77.50000010000001,
+        -24.000000100000005,
+        -35.00000010000001,
+        37.50000010000001,
+        24.000000100000005,
+        -4.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": "Generic envelope, not a selected cell pack"
+    },
+    {
+      "name": "battery_strap_-57",
+      "link_group": "chassis",
+      "material": "rubber",
+      "solids": 1,
+      "volume_mm3": 3660.0000000000027,
+      "bounds_mm": [
+        -62.00000010000001,
+        -27.000000100000005,
+        -37.00000010000001,
+        -51.99999989999999,
+        27.000000100000005,
+        -2.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "battery_strap_17",
+      "link_group": "chassis",
+      "material": "rubber",
+      "solids": 1,
+      "volume_mm3": 3660.0000000000027,
+      "bounds_mm": [
+        11.999999899999995,
+        -27.000000100000005,
+        -37.00000010000001,
+        22.000000100000005,
+        27.000000100000005,
+        -2.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "controller_pcb",
+      "link_group": "chassis",
+      "material": "green",
+      "solids": 1,
+      "volume_mm3": 6443.451332235383,
+      "bounds_mm": [
+        -12.500000100000015,
+        22.999999899999985,
+        11.998950957182585,
+        52.500000100000015,
+        73.00000010000002,
+        14.001049042817415
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "compute_heatsink",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 3639.9999999999995,
+      "bounds_mm": [
+        5.999999899999993,
+        34.99999989999999,
+        14.499999899999994,
+        34.00000010000001,
+        61.00000010000001,
+        19.50000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_9",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        8.499999899999994,
+        34.99999989999999,
+        18.99999989999999,
+        9.500000100000006,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_13",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        12.499999899999994,
+        34.99999989999999,
+        18.99999989999999,
+        13.500000100000006,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_17",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        16.49999989999999,
+        34.99999989999999,
+        18.99999989999999,
+        17.50000010000001,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_21",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        20.49999989999999,
+        34.99999989999999,
+        18.99999989999999,
+        21.50000010000001,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_25",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        24.49999989999999,
+        34.99999989999999,
+        18.99999989999999,
+        25.50000010000001,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_29",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        28.49999989999999,
+        34.99999989999999,
+        18.99999989999999,
+        29.50000010000001,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "heatsink_fin_33",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 156.0,
+      "bounds_mm": [
+        32.49999989999999,
+        34.99999989999999,
+        18.99999989999999,
+        33.50000010000001,
+        61.00000010000001,
+        25.00000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "motor_driver",
+      "link_group": "chassis",
+      "material": "green",
+      "solids": 1,
+      "volume_mm3": 16200.0,
+      "bounds_mm": [
+        -82.5000001,
+        -63.0000001,
+        9.9999999,
+        -37.4999999,
+        -32.9999999,
+        22.0000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "driver_terminal_-72",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 392.0000000000001,
+      "bounds_mm": [
+        -75.5000001,
+        -65.0000001,
+        20.4999999,
+        -68.4999999,
+        -56.9999999,
+        27.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "driver_terminal_-60",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 392.0000000000001,
+      "bounds_mm": [
+        -63.5000001,
+        -65.0000001,
+        20.4999999,
+        -56.4999999,
+        -56.9999999,
+        27.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "driver_terminal_-48",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 392.0000000000001,
+      "bounds_mm": [
+        -51.5000001,
+        -65.0000001,
+        20.4999999,
+        -44.4999999,
+        -56.9999999,
+        27.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "power_button_base",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 1884.9555921538758,
+      "bounds_mm": [
+        -75.00699305211603,
+        34.99300694788398,
+        10.993006947883975,
+        -54.99300694788398,
+        55.00699305211602,
+        17.006993052116027
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "power_button_cap",
+      "link_group": "chassis",
+      "material": "red",
+      "solids": 1,
+      "volume_mm3": 1407.433508808227,
+      "bounds_mm": [
+        -73.00559446169282,
+        36.99440553830718,
+        16.99440553830718,
+        -56.99440553830718,
+        53.00559446169282,
+        24.00559446169282
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_left_gearmotor",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 31101.76727053895,
+      "bounds_mm": [
+        -157.51048952817405,
+        39.98951047182596,
+        -70.01048952817405,
+        -127.48951047182595,
+        84.01048952817405,
+        -39.98951047182596
+      ],
+      "assembly_quantity": 1,
+      "note": "Generic gearmotor envelope"
+    },
+    {
+      "name": "rear_left_gearbox",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 19220.0,
+      "bounds_mm": [
+        -158.0000001,
+        83.99999989999999,
+        -70.50000010000001,
+        -126.99999989999999,
+        104.00000010000001,
+        -39.49999989999999
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_left_motor_bracket",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 4902.123980236907,
+      "bounds_mm": [
+        -162.50000010000002,
+        69.99370624309556,
+        -70.50000010000004,
+        -122.49999989999996,
+        74.00629375690444,
+        -33.49999989999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_left_shaft",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 735.1326809400118,
+      "bounds_mm": [
+        -145.50209798563483,
+        91.99790201436517,
+        -58.00209798563483,
+        -139.49790201436517,
+        118.00209798563483,
+        -51.99790201436517
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_right_gearmotor",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 31101.76727053895,
+      "bounds_mm": [
+        -157.51048952817405,
+        -84.01048952817405,
+        -70.01048952817405,
+        -127.48951047182595,
+        -39.98951047182596,
+        -39.98951047182596
+      ],
+      "assembly_quantity": 1,
+      "note": "Generic gearmotor envelope"
+    },
+    {
+      "name": "rear_right_gearbox",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 19220.0,
+      "bounds_mm": [
+        -158.0000001,
+        -104.00000010000001,
+        -70.50000010000001,
+        -126.99999989999999,
+        -83.99999989999999,
+        -39.49999989999999
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_right_motor_bracket",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 4902.123980236907,
+      "bounds_mm": [
+        -162.50000010000002,
+        -74.00629375690444,
+        -70.50000010000004,
+        -122.49999989999996,
+        -69.99370624309556,
+        -33.49999989999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_right_shaft",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 735.1326809400118,
+      "bounds_mm": [
+        -145.50209798563483,
+        -118.00209798563483,
+        -58.00209798563483,
+        -139.49790201436517,
+        -91.99790201436517,
+        -51.99790201436517
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_bumper",
+      "link_group": "chassis",
+      "material": "rubber",
+      "solids": 1,
+      "volume_mm3": 20160.0,
+      "bounds_mm": [
+        -232.0000001,
+        -45.0000001,
+        -38.0000001,
+        -217.9999999,
+        45.0000001,
+        -21.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "front_bumper",
+      "link_group": "chassis",
+      "material": "rubber",
+      "solids": 1,
+      "volume_mm3": 20160.0,
+      "bounds_mm": [
+        213.9999999,
+        -45.0000001,
+        -38.0000001,
+        228.0000001,
+        45.0000001,
+        -21.999999899999995
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "front_lamp_-1",
+      "link_group": "chassis",
+      "material": "white",
+      "solids": 1,
+      "volume_mm3": 799.9999999999998,
+      "bounds_mm": [
+        226.4999999,
+        -32.0000001,
+        -25.000000100000005,
+        231.5000001,
+        -15.999999899999997,
+        -14.999999899999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_lamp_-1",
+      "link_group": "chassis",
+      "material": "red",
+      "solids": 1,
+      "volume_mm3": 511.9999999999999,
+      "bounds_mm": [
+        -233.0000001,
+        -32.0000001,
+        -24.000000100000005,
+        -228.9999999,
+        -15.999999899999997,
+        -15.999999899999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "front_lamp_1",
+      "link_group": "chassis",
+      "material": "white",
+      "solids": 1,
+      "volume_mm3": 799.9999999999998,
+      "bounds_mm": [
+        226.4999999,
+        15.999999899999997,
+        -25.000000100000005,
+        231.5000001,
+        32.0000001,
+        -14.999999899999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "rear_lamp_1",
+      "link_group": "chassis",
+      "material": "red",
+      "solids": 1,
+      "volume_mm3": 511.9999999999999,
+      "bounds_mm": [
+        -233.0000001,
+        15.999999899999997,
+        -24.000000100000005,
+        -228.9999999,
+        32.0000001,
+        -15.999999899999997
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "front_direction_arrow",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 612.0000000000001,
+      "bounds_mm": [
+        155.4999999,
+        -16.00000010000001,
+        -42.00000010000001,
+        196.5000001,
+        16.00000010000001,
+        -40.99999989999999
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_steering_bridge",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 7500.0,
+      "bounds_mm": [
+        127.49999989999999,
+        89.99999989999999,
+        18.499999899999985,
+        157.50000010000002,
+        140.00000010000002,
+        23.500000100000015
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_case",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 24800.0,
+      "bounds_mm": [
+        112.49999989999999,
+        129.9999999,
+        26.49999989999999,
+        152.5000001,
+        150.0000001,
+        57.50000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": "Direct kingpin actuation envelope"
+    },
+    {
+      "name": "left_servo_cap",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 2399.9999999999995,
+      "bounds_mm": [
+        112.4999999,
+        129.9999999,
+        57.4999999,
+        152.5000001,
+        150.0000001,
+        60.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_mount_-25",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 810.0,
+      "bounds_mm": [
+        112.9999999,
+        124.9999999,
+        23.4999999,
+        122.0000001,
+        155.0000001,
+        26.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_screw_-25_-12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987238,
+      "bounds_mm": [
+        114.99825166197098,
+        125.49825166197098,
+        26.998251661970976,
+        120.00174833802902,
+        130.50174833802902,
+        29.001748338029024
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_screw_-25_12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987238,
+      "bounds_mm": [
+        114.99825166197098,
+        149.49825166197098,
+        26.998251661970976,
+        120.00174833802902,
+        154.50174833802902,
+        29.001748338029024
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_mount_15",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 810.0,
+      "bounds_mm": [
+        152.9999999,
+        124.9999999,
+        23.4999999,
+        162.0000001,
+        155.0000001,
+        26.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_screw_15_-12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987241,
+      "bounds_mm": [
+        154.99825166197095,
+        125.49825166197097,
+        26.99825166197097,
+        160.00174833802905,
+        130.50174833802905,
+        29.00174833802903
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_screw_15_12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987241,
+      "bounds_mm": [
+        154.99825166197095,
+        149.49825166197095,
+        26.99825166197097,
+        160.00174833802905,
+        154.50174833802905,
+        29.00174833802903
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_kingpin_fork",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 17290.1504561362,
+      "bounds_mm": [
+        133.49999989999995,
+        88.99999989999999,
+        -40.0000001,
+        151.50000010000005,
+        145.00000010000005,
+        22.502237844677147
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_kingpin_bearing",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 502.65482457436696,
+      "bounds_mm": [
+        135.49510483351875,
+        132.99510483351875,
+        16.995104833518756,
+        149.50489516648125,
+        147.00489516648125,
+        21.004895166481244
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_kingpin",
+      "link_group": "steer_left",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 678.5840131753953,
+      "bounds_mm": [
+        -3.002097985634805,
+        -3.002097985634805,
+        58.997902014365195,
+        3.002097985634805,
+        3.002097985634805,
+        83.0020979856348
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_steering_knuckle",
+      "link_group": "steer_left",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 10289.04647299501,
+      "bounds_mm": [
+        -6.000000100000007,
+        -50.00000010000001,
+        -2.0000001,
+        6.000000100000007,
+        5.000000100000007,
+        62.502167915155965
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_servo_horn",
+      "link_group": "steer_left",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 1004.6310219337787,
+      "bounds_mm": [
+        -22.000000100000037,
+        -9.005241529979408,
+        64.99382133943307,
+        9.006178660566935,
+        9.005241529979406,
+        68.00617866056693
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "left_stub_axle",
+      "link_group": "steer_left",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 2513.2741228718346,
+      "bounds_mm": [
+        -4.002797280846406,
+        -47.00279728084641,
+        -4.002797280846406,
+        4.002797280846406,
+        3.0027972808464063,
+        4.002797280846406
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_steering_bridge",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 7500.0,
+      "bounds_mm": [
+        127.49999989999999,
+        -140.00000010000002,
+        18.499999899999985,
+        157.50000010000002,
+        -89.99999989999999,
+        23.500000100000015
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_case",
+      "link_group": "chassis",
+      "material": "frame",
+      "solids": 1,
+      "volume_mm3": 24800.0,
+      "bounds_mm": [
+        112.49999989999999,
+        -150.0000001,
+        26.49999989999999,
+        152.5000001,
+        -129.9999999,
+        57.50000010000001
+      ],
+      "assembly_quantity": 1,
+      "note": "Direct kingpin actuation envelope"
+    },
+    {
+      "name": "right_servo_cap",
+      "link_group": "chassis",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 2399.9999999999995,
+      "bounds_mm": [
+        112.4999999,
+        -150.0000001,
+        57.4999999,
+        152.5000001,
+        -129.9999999,
+        60.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_mount_-25",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 810.0,
+      "bounds_mm": [
+        112.9999999,
+        -155.0000001,
+        23.4999999,
+        122.0000001,
+        -124.9999999,
+        26.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_screw_-25_-12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987238,
+      "bounds_mm": [
+        114.99825166197098,
+        -154.50174833802902,
+        26.998251661970976,
+        120.00174833802902,
+        -149.49825166197098,
+        29.001748338029024
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_screw_-25_12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987238,
+      "bounds_mm": [
+        114.99825166197097,
+        -130.50174833802902,
+        26.998251661970976,
+        120.00174833802903,
+        -125.49825166197097,
+        29.001748338029024
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_mount_15",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 810.0,
+      "bounds_mm": [
+        152.9999999,
+        -155.0000001,
+        23.4999999,
+        162.0000001,
+        -124.9999999,
+        26.5000001
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_screw_15_-12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987241,
+      "bounds_mm": [
+        154.99825166197095,
+        -154.50174833802905,
+        26.99825166197097,
+        160.00174833802905,
+        -149.49825166197095,
+        29.00174833802903
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_screw_15_12",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 39.26990816987241,
+      "bounds_mm": [
+        154.99825166197098,
+        -130.50174833802902,
+        26.998251661970976,
+        160.00174833802902,
+        -125.49825166197098,
+        29.001748338029024
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_kingpin_fork",
+      "link_group": "chassis",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 17290.150456136198,
+      "bounds_mm": [
+        133.49999989999995,
+        -145.00000010000005,
+        -40.0000001,
+        151.50000010000005,
+        -88.99999989999999,
+        22.502237844677147
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_kingpin_bearing",
+      "link_group": "chassis",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 502.65482457436696,
+      "bounds_mm": [
+        135.49510483351875,
+        -147.00489516648125,
+        16.995104833518756,
+        149.50489516648125,
+        -132.99510483351875,
+        21.004895166481244
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_kingpin",
+      "link_group": "steer_right",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 678.5840131753953,
+      "bounds_mm": [
+        -3.002097985634805,
+        -3.002097985634805,
+        58.997902014365195,
+        3.002097985634805,
+        3.002097985634805,
+        83.0020979856348
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_steering_knuckle",
+      "link_group": "steer_right",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 10289.046472995009,
+      "bounds_mm": [
+        -6.000000100000004,
+        -5.000000100000004,
+        -2.0000001,
+        6.000000100000004,
+        50.0000001,
+        62.502167915155965
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_servo_horn",
+      "link_group": "steer_right",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 1004.6310219337787,
+      "bounds_mm": [
+        -22.000000100000037,
+        -9.005241529979408,
+        64.99382133943307,
+        9.006178660566935,
+        9.005241529979406,
+        68.00617866056693
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "right_stub_axle",
+      "link_group": "steer_right",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 2513.2741228718346,
+      "bounds_mm": [
+        -4.002797280846406,
+        -2.0027972808464063,
+        -4.002797280846406,
+        4.002797280846406,
+        48.00279728084641,
+        4.002797280846406
+      ],
+      "assembly_quantity": 1,
+      "note": ""
+    },
+    {
+      "name": "tire_tread",
+      "link_group": "wheel",
+      "material": "rubber",
+      "solids": 1,
+      "volume_mm3": 429433.66378155194,
+      "bounds_mm": [
+        -55.01978458567117,
+        -35.03515036846463,
+        -55.01978458567116,
+        55.01978458567116,
+        35.03515036846463,
+        55.01978458567116
+      ],
+      "assembly_quantity": 4,
+      "note": ""
+    },
+    {
+      "name": "six_spoke_rim",
+      "link_group": "wheel",
+      "material": "aluminium",
+      "solids": 1,
+      "volume_mm3": 147151.1003367171,
+      "bounds_mm": [
+        -31.92230761725009,
+        -32.52230761725009,
+        -31.92230761725009,
+        31.92230761725009,
+        32.52230761725009,
+        31.92230761725009
+      ],
+      "assembly_quantity": 4,
+      "note": ""
+    },
+    {
+      "name": "wheel_hub",
+      "link_group": "wheel",
+      "material": "blue",
+      "solids": 1,
+      "volume_mm3": 3430.6191777200534,
+      "bounds_mm": [
+        -10.006993052116016,
+        -6.506993052116016,
+        -10.006993052116016,
+        10.006993052116016,
+        6.506993052116016,
+        10.006993052116016
+      ],
+      "assembly_quantity": 4,
+      "note": ""
+    },
+    {
+      "name": "hub_nut_-1",
+      "link_group": "wheel",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 254.46900494077326,
+      "bounds_mm": [
+        -6.0041958712696095,
+        -31.50419587126961,
+        -6.0041958712696095,
+        6.0041958712696095,
+        -28.49580412873039,
+        6.0041958712696095
+      ],
+      "assembly_quantity": 4,
+      "note": ""
+    },
+    {
+      "name": "hub_nut_1",
+      "link_group": "wheel",
+      "material": "gold",
+      "solids": 1,
+      "volume_mm3": 254.46900494077326,
+      "bounds_mm": [
+        -6.0041958712696095,
+        28.49580412873039,
+        -6.0041958712696095,
+        6.0041958712696095,
+        31.50419587126961,
+        6.0041958712696095
+      ],
+      "assembly_quantity": 4,
+      "note": ""
+    }
+  ],
+  "meshes": [
+    "chassis_aluminium.stl",
+    "chassis_battery.stl",
+    "chassis_blue.stl",
+    "chassis_frame.stl",
+    "chassis_gold.stl",
+    "chassis_green.stl",
+    "chassis_red.stl",
+    "chassis_rubber.stl",
+    "chassis_white.stl",
+    "steer_left_aluminium.stl",
+    "steer_left_blue.stl",
+    "steer_left_gold.stl",
+    "steer_right_aluminium.stl",
+    "steer_right_blue.stl",
+    "steer_right_gold.stl",
+    "wheel_aluminium.stl",
+    "wheel_blue.stl",
+    "wheel_gold.stl",
+    "wheel_rubber.stl"
+  ],
+  "part_instances": 97
+}

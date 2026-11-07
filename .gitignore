@@ -3,6 +3,8 @@
 *.m~
 results/*.mat
 results/*.fig
+matlab/results/*.mat
+matlab/results/*.fig
 matlab_validation.log
 
 # Local reference document and extraction artifacts
@@ -21,11 +23,39 @@ Thumbs.db
 Desktop.ini
 
 # ROS 2 / Python build and experiment artifacts
-build/
-install/
-log/
-.venv/
+/build/
+/install/
+/log/
+/patrol_runs/
+.venv*/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
 .pytest_cache/
-patrol_runs/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local ROS / Gazebo state and recordings
+.ros/
+.ignition/
+.gz/
+*.db3
+*.db3-shm
+*.db3-wal
+*.mcap
+
+# Editor and CAD backup files
+*.swp
+*.swo
+*~
+*.FCStd1
+*.FCStd2
+
+# Local tests and generated validation reports (not distributed in Git)
+/tests/
+/validation/
+
+# Keep MATLAB source, current CAD/STEP/STL assets and the current CAD preview.
+# Do not ignore matlab/, *.m, *.step, *.stl or *.png globally.

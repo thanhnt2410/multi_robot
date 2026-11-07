@@ -2,6 +2,7 @@
 
 Triển khai Kuramoto đảo thời gian, đường Lissajous và MPCC cho **3 xe có vật lý + 2 tác tử ảo**.
 Cũng hỗ trợ một xe để kiểm tra cơ sở và năm xe có vật lý.
+Mô hình hiện tại có CAD cơ khí 97 chi tiết và mesh khung/cụm lái/bánh riêng; xem [CAD](cad/README.md).
 Mỗi xe có bốn bánh: hai bánh sau chủ động, hai bánh trước quay thụ động và lái Ackermann.
 
 ## Môi trường và cài đặt
@@ -28,7 +29,6 @@ Từ thư mục gốc repo:
 python3 -m venv --system-site-packages .venv
 .venv/bin/python -m pip install -r requirements-mpcc.txt
 bash scripts/build_ros2.sh
-bash scripts/check_ros2.sh
 ```
 
 Script build dùng setuptools hệ thống của Humble, tránh lỗi `--editable not recognized`
@@ -152,7 +152,8 @@ Bộ này gồm tuần tra bình thường, dừng/phục hồi, vòng hở đ�
 và năm xe vật lý. Kiểm thử lỗi dùng các world riêng: pause/resume/reset thông qua dịch vụ
 Gazebo và tạm dừng đúng node phối hợp của lượt kiểm thử để đo khả năng dừng khi mất dữ liệu.
 Các lượt kiểm tra này chạy headless; kết quả và biểu đồ được xuất vào
-`validation/GAZEBO_SCENARIOS.md`. Dự kiến cần khoảng 15–20 phút cho bộ đầy đủ trên máy hiện tại.
+`validation/GAZEBO_SCENARIOS.md` ở local; thư mục này không được đưa lên Git.
+Dự kiến cần khoảng 15–20 phút cho bộ đầy đủ trên máy hiện tại.
 Mã thoát 1 của bộ chạy báo có tiêu chí không đạt, kể cả ca vòng hở đối chứng;
 các số đo, kiểm tra và kết quả từng ca vẫn được lưu đầy đủ.
 
@@ -225,7 +226,7 @@ Phủ 100% và phát hiện đủ mục tiêu trong mô phỏng này không ch�
 Chưa có LiDAR/SLAM/Nav2, vật cản, mất liên lạc kéo dài hay ràng buộc tránh va chạm trong MPCC.
 Không dùng kết quả này để tuyên bố bảo đảm an toàn ngoài các giả thiết của bài báo.
 
-Xem [báo cáo kiểm chứng](validation/REPORT.md), [kế hoạch](PLAN_ROS2_SWARM_PATROL.md)
+Xem [kế hoạch](PLAN_ROS2_SWARM_PATROL.md)
 và [CAD tham chiếu](cad/README.md).
 
 ## Nguồn mô hình
@@ -255,4 +256,5 @@ Marker hiển thị cả khi chờ khởi động và sau khi kết thúc nhiệ
 Mỗi lần chạy mặc định tạo thư mục `patrol_runs/interactive_<thời gian>_<mã>/`,
 bao gồm cấu hình RViz đã khớp với fleet và scenario. Nếu chỉ định `output_dir:=...`,
 hãy chọn thư mục chưa có kết quả; hệ thống không ghi đè lượt chạy cũ.
-Minh chứng kiểm thử giao diện: [validation/RVIZ.md](validation/RVIZ.md).
+Mã nguồn MATLAB, CAD và mesh hiện tại được lưu trong Git. Các thư mục `tests/`,
+`validation/` và `patrol_runs/` phục vụ kiểm tra ở local, không nằm trong bản phân phối.

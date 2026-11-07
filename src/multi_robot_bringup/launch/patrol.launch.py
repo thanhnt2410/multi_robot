@@ -26,8 +26,10 @@ def setup(context):
     path=Lissajous(c)
     world=str(Path(share('ackermann_gazebo'))/'worlds/patrol.sdf')
     plugin_path=str(Path(get_package_prefix('gz_ros2_control'))/'lib')
+    resource_path=str(Path(share('ackermann_description')).parent)
     actions=[ExecuteProcess(cmd=['ign','gazebo','-r',*([] if gui else ['-s']),world],output='screen',
-        additional_env={'IGN_GAZEBO_SYSTEM_PLUGIN_PATH':plugin_path+':'+os.environ.get('IGN_GAZEBO_SYSTEM_PLUGIN_PATH','')})]
+        additional_env={'IGN_GAZEBO_SYSTEM_PLUGIN_PATH':plugin_path+':'+os.environ.get('IGN_GAZEBO_SYSTEM_PLUGIN_PATH',''),
+                        'IGN_GAZEBO_RESOURCE_PATH':resource_path+':'+os.environ.get('IGN_GAZEBO_RESOURCE_PATH','')})]
     actions.append(Node(package='ros_gz_bridge',executable='parameter_bridge',
         arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'],output='screen'))
     common={'use_sim_time':True,**cfg}
@@ -88,6 +90,11 @@ def setup(context):
             'Target Frame':f'robot_{i}/base_footprint','Distance':2.5,
             'Pitch':0.65,'Yaw':0.8,'Near Clip Distance':0.01,
             'Focal Point':{'X':0.14,'Y':0.0,'Z':0.1}} for i in physical]
+        if fleet=='single' and not control:
+            manager['Views']['Current']={**manager['Views']['Saved'][0],
+                                         'Name':'Current View','Distance':1.15}
+            # Teleoperation has no evaluation node / patrol markers.
+            manager['Displays']=[d for d in manager['Displays'] if d['Name']!='Patrol']
         for i in physical:
             manager['Displays'].append({
                 'Class':'rviz_default_plugins/RobotModel','Name':f'Robot {i}',
